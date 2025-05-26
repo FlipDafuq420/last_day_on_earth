@@ -1,0 +1,28 @@
+Przeczytaj polecenie
+
+Robimy najpierw klasę abstrakcyjną, musi mieć:
+destruktor abstrakcyjny czyli
+	virtual ~Nazwa();
+oraz któraś z metod będzie abstrakcyjna czyli:
+	virtual int nazwaMetody() const;
+reszta generowana domyślnie.
+
+Potem klasy dziedziczące:
+muszą mieć w konstruktorach rzeczy dziedziczone, załatwiamy to:
+	class Nazwa : public NazwaGlownego
+i generujemy konstruktor. To, co jest abstrakcyjne musi mieć na końcu 'const override'
+	int nazwaMetody() const override;
+
+W pliku z główną funkcjonalnością implementujemy to co na UML.
+
+	addItem(in bptr: Item)  ==========>  void addItem(const ItemPtr& bptr);
+	rentItem(in itemId: integer) =====>  void rentItem(int itemId);
+	showAviableItems(): string =======>  std::string showAvailableItems() const;
+
+
+Live Templaty:
+
+sprzedanycyganom --> test podwójnej sprzedarzy 
+sprzedanyoddany ---> test sprzedarzy i zwrotu
+glowniak ----------> main.cpp
+randyburger -------> showAvailable...
